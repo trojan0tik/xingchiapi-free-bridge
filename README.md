@@ -136,26 +136,48 @@ curl -s http://127.0.0.1:8792/__health
 # {"ok":true,"upstream":"https://api.xingchiapi.com","userAgent":"claude-cli/…", …}
 ```
 
-## Wire it into 9Router
+## Wire it into your router
 
-9Router reads `providerConnections` live, so this needs no restart.
+Nothing to script — the bridge is just an OpenAI-compatible base URL. Add the
+provider in your router's dashboard as usual and put the bridge where the
+upstream URL would go:
+
+| Field in "Add provider" dialog | Value |
+| ------------------------------ | ----- |
+| Name / Prefix                 | `xingchiapi` (or anything you like) |
+| API Type                      | `Chat Completions` |
+| **Base URL**                  | **`http://127.0.0.1:8792`** |
+| API Key                       | your upstream key, pasted as normal |
+| Model ID                      | leave empty — fetch from `/models` |
+
+That is the whole integration. The router appends `/chat/completions` and
+`/models` itself, and the bridge forwards those paths unchanged. Because the
+API key is entered normally, it is stored and rotated by the router exactly as
+for any other provider — the bridge is transparent and stateless.
+
+Verify from the dashboard's *Test* button, or by hand:
 
 ```bash
-# all connections of one provider + its providerNode
-./scripts/9router-fix.sh openai-compatible-chat-5ddf6535-f293-47e9-8e90-679a6b06ff76
+KEY=<your-router-key>
+curl -s http://127.0.0.1:20128/v1/chat/completions \
+  -H "Authorization: Bearer $KEY" -H 'Content-Type: application/json' \
+  -d '{"model":"xingchiapi/gpt-6.1-sol","messages":[{"role":"user","content":"say ok"}]}'
 ```
 
-The script backs up the DB first, rewrites
-`data.providerSpecificData.baseUrl` → `http://127.0.0.1:8792`, and clears
-`errorCode` / `lastError` / `rateLimitedUntil` / `modelLock_*` left over from the
-old 403s.
+### If a provider already exists and still points at the blocked URL
 
-Or set it by hand in the dashboard — paste `http://127.0.0.1:8792` as the
-**Base URL** of the provider (the router appends `/chat/completions` itself),
-then hit *Test*.
+Just edit it in the dashboard: open the provider, replace Base URL with
+`http://127.0.0.1:8792`, save, then hit *Test*. No restart and no database
+access needed — routers read provider settings on every request.
 
-Other routers: point any OpenAI-compatible base URL at the bridge. Paths
-(`/chat/completions`, `/models`, `/responses`, …) are forwarded unchanged.
+> Do not hand-edit `providerConnections` in the router's SQLite DB unless you
+> have no UI path. A careless `json_set` on a `data` blob can drop fields the
+> executor needs (including the API key), and the resulting breakage looks like
+> an auth failure rather than a data bug.
+
+Other routers, SDKs, or plain `curl`: point any OpenAI-compatible base URL at
+the bridge. Paths (`/chat/completions`, `/models`, `/responses`, …) are
+forwarded unchanged.
 
 ## Usage
 
@@ -223,6 +245,16 @@ Confirmed working: single-shot completions, incremental SSE, tool calls,
   `scripts/probe.js` and update `UA` / `XAPP` — no code change needed.
 * Port collisions are the usual install failure: pick a free loopback port
   (`ss -ltn | grep <port>`) rather than relying on the default.
+* **Upstream latency is highly variable** — the same account/model measured
+  2.5 s and 96 s for an identical 5-token request. The bridge never imposes a
+  short timeout (default cap 10 min, and streamed responses have no idle
+  limit), but a *router* configured with a 30 s request timeout will fail
+  randomly and report it as an auth or connection error. Raise the router's
+  timeout rather than blaming the bridge.
+* The bridge holds no credentials. If it is down, requests fail with `502
+  upstream error` / connection refused — the router's own key handling is
+  unaffected. Check `systemctl status xingchiapi-free-bridge` and
+  `bridge.log`.
 * If the upstream ever gates on something TLS-fingerprint-shaped rather than a
   header, this bridge will not help; the probe matrix will show *no* accepted
   identity, which is the signal to stop.
