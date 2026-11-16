@@ -1,0 +1,10 @@
+{
+  "host": "127.0.0.1",
+  "port": 8792,
+  "upstream": "https://api.xingchiapi.com",
+  "userAgent": "claude-cli/2.1.92 (external, sdk-cli)",
+  "xApp": "cli",
+  "extraHeaders": {},
+  "timeoutMs": 600000,
+  "logRequests": true
+}

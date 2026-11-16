@@ -1,0 +1,28 @@
+{
+  "name": "xingchiapi-free-bridge",
+  "version": "1.0.0",
+  "description": "Loopback header-injector proxy that lets LLM routers talk to client-gated OpenAI-compatible upstreams (fixes 403 client_not_allowed)",
+  "main": "proxy.js",
+  "bin": {
+    "xingchiapi-free-bridge": "proxy.js"
+  },
+  "scripts": {
+    "start": "node proxy.js",
+    "probe": "node scripts/probe.js",
+    "check": "node --check proxy.js && node --check scripts/probe.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "openai-compatible",
+    "proxy",
+    "user-agent",
+    "llm-gateway",
+    "9router",
+    "client-not-allowed",
+    "header-injection"
+  ],
+  "license": "MIT",
+  "private": false
+}
