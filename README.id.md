@@ -40,21 +40,6 @@ sebelum menyambungkan bridge ke router.
 Setelah itu buat API key di dashboard platform, lalu pakai dengan bridge ini
 (lihat [bagian cara input manual di 9Router](#-cara-input-manual-di-9router-alur-utama)).
 
-> **Transparansi:** dua link di atas mengandung kode referral penulis repo
-> (`inv_282314117`, `aff=JQGRF9XPEC5D`). Sengaja ditampilkan apa adanya, bukan
-> disembunyikan di belakang redirect. Kalau tidak ingin memberi kredit ke siapa
-> pun, buka langsung <https://t.me/xingchi66bot> dan
-> <https://xingchiapi.com> — langkahnya sama.
->
-> Bridge ini **tidak berafiliasi** dengan platform tersebut. Tugasnya cuma
-> menimpa header `User-Agent`; ia tidak membuat akun, tidak memberi kredit, dan
-> tidak melewati kuota. Besaran kredit dan syaratnya adalah promo milik
-> platform itu sendiri — silakan verifikasi sendiri. Pendaftaran butuh alamat
-> email; pakai email yang Anda nyaman dibagikan ke layanan pihak ketiga.
-
----
-
-
 ## Masalahnya
 
 Sebagian gateway hanya mau menerima trafik dari daftar klien "coding" tertentu.
