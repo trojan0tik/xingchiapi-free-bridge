@@ -16,6 +16,45 @@ Dengan bridge:  router (UA undici) ─► bridge (menimpa UA) ─► upstream �
 
 ---
 
+## 🔥 Kredit LLM $1000 Gratis (GPT) — cara cepat
+
+Daftar dulu itu wajib: provider ini baru bisa dipakai setelah Anda punya akun
+**dan** sudah menukar voucher — sebelum itu API key belum ada. Jadi lakukan ini
+sebelum menyambungkan bridge ke router.
+
+1. **Ambil kode voucher $1000** di Telegram bot ini:
+   <https://t.me/xingchi66bot?start=inv_282314117>
+   Start bot-nya, ikuti instruksinya, lalu copy kode voucher yang dikasih.
+2. **Simpan dulu** kode voucher itu — nanti dipakai di langkah 5. Jangan ditutup
+   sebelum sempat daftar.
+3. **Lanjut daftar ke web Platform LLM-nya:**
+   <https://xingchiapi.com/register?aff=JQGRF9XPEC5D>
+   (email + password, verifikasi kalau diminta).
+4. Kalau akun sudah jadi, **copy lagi kode voucher $1000** dari langkah 1.
+5. Buka dashboard platform, klik menu **`Redeem Code`**
+   (`https://xingchiapi.com/redeem`), paste voucher ke field berlabel
+   **`Redeem Code`** ("Enter your redeem code"), lalu tekan tombol
+   **`Redeem Code`**. Kalau berhasil muncul
+   *"Code redeemed successfully!"* dan saldo langsung tampil di halaman itu.
+
+Setelah itu buat API key di dashboard platform, lalu pakai dengan bridge ini
+(lihat [bagian cara input manual di 9Router](#-cara-input-manual-di-9router-alur-utama)).
+
+> **Transparansi:** dua link di atas mengandung kode referral penulis repo
+> (`inv_282314117`, `aff=JQGRF9XPEC5D`). Sengaja ditampilkan apa adanya, bukan
+> disembunyikan di belakang redirect. Kalau tidak ingin memberi kredit ke siapa
+> pun, buka langsung <https://t.me/xingchi66bot> dan
+> <https://xingchiapi.com> — langkahnya sama.
+>
+> Bridge ini **tidak berafiliasi** dengan platform tersebut. Tugasnya cuma
+> menimpa header `User-Agent`; ia tidak membuat akun, tidak memberi kredit, dan
+> tidak melewati kuota. Besaran kredit dan syaratnya adalah promo milik
+> platform itu sendiri — silakan verifikasi sendiri. Pendaftaran butuh alamat
+> email; pakai email yang Anda nyaman dibagikan ke layanan pihak ketiga.
+
+---
+
+
 ## Masalahnya
 
 Sebagian gateway hanya mau menerima trafik dari daftar klien "coding" tertentu.

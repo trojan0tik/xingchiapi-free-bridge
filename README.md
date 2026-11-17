@@ -16,6 +16,43 @@ With bridge:      router (undici UA) ─► bridge (injects UA) ─► upstream 
 
 ---
 
+## 🔥 Free $1000 LLM Credit (GPT) — quick start
+
+You need an account **and** a redeemed voucher before any API key exists, so do
+this before wiring the bridge into your router.
+
+1. **Get the $1000 voucher code** from this Telegram bot:
+   <https://t.me/xingchi66bot?start=inv_282314117>
+   Start the bot, follow its prompt, and copy the voucher code it gives you.
+2. Keep that voucher code — you will paste it in step 5. Do not close it before
+   registering.
+3. **Register on the LLM platform:**
+   <https://xingchiapi.com/register?aff=JQGRF9XPEC5D>
+   (email + password, then verify if asked).
+4. Once the account exists, copy the $1000 voucher code from step 1 again.
+5. Open the platform dashboard and click the **`Redeem Code`** menu item
+   (`https://xingchiapi.com/redeem`), paste the voucher into the field
+   labelled **`Redeem Code`** ("Enter your redeem code"), then press the
+   **`Redeem Code`** button. On success it shows
+   *"Code redeemed successfully!"* and the balance appears on that same page.
+
+Then create an API key in the platform dashboard and use it with this bridge
+(see [Wire it into your router](#wire-it-into-your-router)).
+
+> **Disclosure:** the two links above contain the repository author's referral
+> codes (`inv_282314117`, `aff=JQGRF9XPEC5D`). They are kept visible on purpose
+> rather than hidden behind a redirect. If you prefer not to credit anyone, open
+> <https://t.me/xingchi66bot> and <https://xingchiapi.com> directly — the same
+> steps apply.
+>
+> This bridge is unaffiliated with that platform. It only rewrites the
+> `User-Agent` header; it does not create accounts, grant credits, or bypass
+> quota. The credit amount and its conditions are the platform's own promotion —
+> verify them yourself. Registration requires an email address; use one you are
+> comfortable sharing with a third-party service.
+
+---
+
 ## The problem
 
 Some relay/gateway providers only accept traffic from a whitelist of *coding
