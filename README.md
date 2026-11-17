@@ -39,20 +39,6 @@ this before wiring the bridge into your router.
 Then create an API key in the platform dashboard and use it with this bridge
 (see [Wire it into your router](#wire-it-into-your-router)).
 
-> **Disclosure:** the two links above contain the repository author's referral
-> codes (`inv_282314117`, `aff=JQGRF9XPEC5D`). They are kept visible on purpose
-> rather than hidden behind a redirect. If you prefer not to credit anyone, open
-> <https://t.me/xingchi66bot> and <https://xingchiapi.com> directly — the same
-> steps apply.
->
-> This bridge is unaffiliated with that platform. It only rewrites the
-> `User-Agent` header; it does not create accounts, grant credits, or bypass
-> quota. The credit amount and its conditions are the platform's own promotion —
-> verify them yourself. Registration requires an email address; use one you are
-> comfortable sharing with a third-party service.
-
----
-
 ## The problem
 
 Some relay/gateway providers only accept traffic from a whitelist of *coding
