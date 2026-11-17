@@ -4,6 +4,9 @@ A tiny loopback proxy that fixes **`403 client_not_allowed`** from client-gated
 OpenAI-compatible LLM upstreams, so routers like [9Router](https://github.com/decolua/9router)
 can finally use them.
 
+> 🇮🇩 Versi Bahasa Indonesia (termasuk panduan input manual di 9Router):
+> **[README.id.md](README.id.md)**
+
 Zero dependencies. One file. ~300 lines of Node.js.
 
 ```
